@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjeev Karnatapu's Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 0 0 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .profile-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #4e73df;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #2e384d;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        
+        h2 {
+            color: #4e73df;
+            padding-bottom: 8px;
+            margin-top: 40px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #4e73df, #a8b8f8);
+            bottom: -5px;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .education-item, .achievement-item, .contact-item {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .education-item::before, .achievement-item::before, .contact-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4e73df;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        
+        .contact-item a {
+            color: #4e73df;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #3a56b0;
+            text-decoration: underline;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .year {
+            font-weight: 500;
+            color: #4e73df;
+            background: rgba(78, 115, 223, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background-color: #f0f4fe;
+            color: #4e73df;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #d6e0ff;
+        }
+        
+        .skill:hover {
+            background-color: #4e73df;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(78, 115, 223, 0.2);
+        }
+        
+        .hobbies-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .hobby {
+            background-color: #f8f1ff;
+            color: #8a4af3;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #e8d9ff;
+        }
+        
+        .hobby:hover {
+            background-color: #8a4af3;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(138, 74, 243, 0.2);
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(78, 115, 223, 0.3), transparent);
+            margin: 40px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #6c757d;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+        
+        .contact-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a2e;
+            color: #f0f0f0;
+        }
+        
+        .dark-mode .container {
+            background-color: #16213e;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dark-mode h1 {
+            color: #f8f9fa;
+        }
+        
+        .dark-mode .subtitle {
+            color: #b0b0b0;
+        }
+        
+        .dark-mode .skill {
+            background-color: rgba(78, 115, 223, 0.2);
+            border-color: rgba(78, 115, 223, 0.4);
+            color: #a8b8f8;
+        }
+        
+        .dark-mode .skill:hover {
+            background-color: #4e73df;
+            color: white;
+        }
+        
+        .dark-mode .hobby {
+            background-color: rgba(138, 74, 243, 0.2);
+            border-color: rgba(138, 74, 243, 0.4);
+            color: #c9a8f8;
+        }
+        
+        .dark-mode .hobby:hover {
+            background-color: #8a4af3;
+            color: white;
+        }
+        
+        .dark-mode .contact-item a {
+            color: #a8b8f8;
+        }
+        
+        .dark-mode .contact-item a:hover {
+            color: white;
+        }
+        
+        .dark-mode .contact-section {
+            background-color: #1e1e2e;
+        }
+        
+        .toggle-container {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .toggle-btn {
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #3a56b0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(78, 115, 223, 0.3);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container">
+        <button class="toggle-btn" onclick="toggleDarkMode()">
+            <span id="theme-icon">🌙</span> Toggle Theme
+        </button>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="profile-container">
+                <img src="C:\Users\91961\Desktop\My info\portfolio pic.jpg" alt="Sanjeev Karnatapu's Profile Picture" class="profile-pic">
+            </div>
+            <h1>SANJEEV KARNATAPU</h1>
+            <div class="subtitle">Computer Science Student</div>
+        </header>
+        
+        <section class="section">
+            <h2>EDUCATION</h2>
+            <div class="education-item">
+                <span class="year">2013-2020</span> MOUNT LITERA ZEE SCHOOL
+            </div>
+            <div class="education-item">
+                <span class="year">2020-2022</span> SRI CHAITANYA JUNIOR COLLEGE
+            </div>
+            <div class="education-item">
+                <span class="year">2023-2027</span> VIT UNIVERSITY
+            </div>
+        </section>
+        
+        <hr>
+        
+        <section class="section">
+            <h2>ACHIEVEMENTS</h2>
+            <div class="achievement-item">
+                FINISHED FIRST IN SME-AI-IDEATION 
+            </div>
+            <div class="achievement-item">
+                PARTICIPATED IN IOT-HACKATION
+            </div>
+            <div class="achievement-item">
+                PARTICIPATED IN GENERATIVE AI BOOTCAMP  
+            </div>
+        </section>
+        
+        <hr>
+        
+        <section class="section">
+            <h2>SKILLS</h2>
+            <div class="skills-container">
+                <span class="skill">PYTHON</span>
+                <span class="skill">C</span>
+                <span class="skill">C++</span>
+                <span class="skill">JAVA</span>
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JAVASCRIPT</span>
+                <span class="skill">MATLAB</span>
+                <span class="skill">R</span>
+                <span class="skill">ASSEMBLY LEVEL PROGRAMMING</span>
+            </div>
+        </section>
+        
+        <hr>    
+        
+        <section class="section">
+            <h2>HOBBIES</h2>
+            <ul class="hobbies-list">
+                <li class="hobby">PLAYING SPORTS</li>
+                <li class="hobby">READING BOOKS</li>
+                <li class="hobby">MEDITATION AND YOGA</li>
+                <li class="hobby">ATTENDING WORKSHOPS</li>
+            </ul>
+        </section>
+        
+        <section class="contact-section">
+            <h2>CONTACT ME</h2>
+            <div class="contact-item">
+                <span class="contact-icon">📱</span> Phone: <a href="tel:9618728149">+91 9618728149</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">✉️</span> Personal Email: <a href="mailto:sanjeevkarnatapu@gmail.com">sanjeevkarnatapu@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🏫</span> University Email: <a href="mailto:sanjeev.karnatapu2023@vitstudent.ac.in">sanjeev.karnatapu2023@vitstudent.ac.in</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🔗</span> LinkedIn: <a href="https://www.linkedin.com/in/sanjeev-karnatapu-99a97928a/" target="_blank">linkedin.com/in/sanjeev-karnatapu</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">💻</span> GitHub: <a href="https://github.com/Sanjeev-Karnatapu" target="_blank">github.com/Sanjeev-Karnatapu</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        &copy; 2023 Sanjeev Karnatapu's Portfolio. All rights reserved.
+    </footer>
+    
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-icon').textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html> 
